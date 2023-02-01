@@ -40,7 +40,10 @@
       localStorage.setItem('dataList', JSON.stringify(inputValues));
     });
     for (let i = 0; i < 5; i++) {
-  localStorage.setItem(`item${i}`, `This is item number ${i}`);
+  localStorage.setItem(`item${i}`, `This is item number ${i}`);for (var i = 0; i < localStorage.length; i++) {
+  var key = localStorage.key(i);
+  var value = localStorage.getItem(key);
+  console.log(key + ": " + value);
 }
   </script>
 </body>

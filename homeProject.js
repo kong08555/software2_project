@@ -7,8 +7,6 @@ function create_arr(){
     count++;
     localStorage.setItem("button",button);
     localStorage.setItem("arr_empty",JSON.stringify(arr_empty));
-    localStorage.setItem("i",JSON.stringify(i));
-    var key = localStorage
-    }
-    
+    localStorage.setItem(`item${i}`, `This is item number ${i}`);
+}
 }
