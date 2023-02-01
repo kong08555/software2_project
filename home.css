@@ -1,0 +1,24 @@
+body {
+    background-image: url('wallpaper.jpg');
+    background-attachment: fixed;
+    background-size: 100% 105%;
+    text-align: center;
+   }
+   button{
+    font-size: 30px;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 70px;
+    background-color: chartreuse;
+    color:black;
+   }
+   #btn-b1{
+    position: fixed;
+    right:  60%;
+    bottom: 30%;
+   }
+   #btn-b2 {
+    position: fixed;
+    left:   60%;
+    bottom: 30%;
+   }

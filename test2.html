@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="userData"></div>
+  <link rel="stylesheet" href="test2">
+
+  <div id="outputContainer"></div>
+
+<script>
+  var outputContainer = document.getElementById("outputContainer");
+  var inputValues = JSON.parse(localStorage.getItem("inputValues"));
+
+  function displayValues() {
+    outputContainer.innerHTML = "";
+    for(var i =0;i < inputValues.length; i++){
+      var output = document.createElement("div");
+      output.classList.add("output");
+      output.innerHTML = inputValues[i];
+      outputContainer.appendChild(output);
+       }
+    }
+
+  displayValues();
+</script>
+</body>
+</html>

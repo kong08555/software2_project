@@ -1,0 +1,29 @@
+block2
+
+var list = document.getElementById("user_List");
+          var entry = document.createElement("li");
+          entry.appendChild(document.createTextNode(" Name: " + f_name + " " + l_name + " faculty: " + faculty + " personal ID: "+ p_id));
+          list.appendChild(entry);
+          document.getElementById("f_name").value = "";
+          document.getElementById("l_name").value = "";
+          document.getElementById("faculty").value = "";
+          document.getElementById("p_id").value = "";
+
+          localStorage.setItem("f_name",f_name);
+          localStorage.setItem("l_name",l_name);
+          localStorage.setItem("faculty",faculty);
+          localStorage.setItem("p_id",p_id);
+
+block1
+var f_name = localStorage.getItem("f_name");
+        var l_name = localStorage.getItem("l_name");
+        var faculty = localStorage.getItem("faculty");
+        var p_id = localStorage.getItem("p_id");
+
+var list_data = [];
+
+        var data_user = "Name: " + f_name +' ' + l_name + "<br>faculty: " + faculty + "<br>personal ID: "+ p_id;
+
+        var list_data = [data_user]
+
+        document.getElementById("historyBorrow").innerHTML=list_data;
