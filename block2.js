@@ -7,8 +7,9 @@ var f_name = document.getElementById("f_name");
           var dataList = JSON.parse(localStorage.getItem("arr_empty"));
           var count_i = JSON.parse(localStorage.getItem("i"));
           var button = localStorage.getItem("button");
+          var k_i = localStorage.getItem(key);
           
-          console.log("create empty array: ", count_i ,dataList);
+          console.log("create empty array: ", k_i ,dataList);
           console.log(localStorage.getItem("count"));
           
 
