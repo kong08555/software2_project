@@ -8,6 +8,7 @@ function create_arr(){
     var key_i = localStorage.key(i);
     localStorage.setItem("button",button);
     localStorage.setItem("arr_empty",JSON.stringify(arr_empty))
+    localStorage.setItem("count",count);
     
 }
 }
