@@ -7,7 +7,7 @@ var f_name = document.getElementById("f_name");
           var dataList = JSON.parse(localStorage.getItem("arr_empty"));
           var count_i = JSON.parse(localStorage.getItem("i"));
           console.log("create empty array: ", count_i ,dataList);
-          console.log(localStorage.getItem("count"));
+          console.log(localStorage.getItem("i"));
 
           sub_list.addEventListener("click",function(){
             dataList.push("name: "+f_name.value +" "+ l_name.value + "<br> faculty: "+ faculty.value + "<br> personal ID: "+ p_id.value);
