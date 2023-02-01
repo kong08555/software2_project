@@ -1,5 +1,6 @@
 var historyBorrow = document.getElementById("historyBorrow");
         var dataList = JSON.parse(localStorage.getItem("dataList"));
+        let reset_btn = document.getElementById("reset_btn");
         
 
        function displayValues(){
@@ -22,3 +23,8 @@ var historyBorrow = document.getElementById("historyBorrow");
          localStorage.removeItem("p_id");
          document.getElementById("historyBorrow").innerHTML = "";
     }
+    reset_btn.addEventListener("click", function() {
+        localStorage.removeItem("count_b");
+        count_b = 0;
+        console.log(count_b);
+      });
