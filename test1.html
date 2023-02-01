@@ -3,47 +3,27 @@
 <body>
 
   <form>
-    <label class = "dec_label"for = "f_name" i style="color: gold;">First name: </label>
-        <input class = "dec_input" type="text" id="f_name" name="f_name" size="25">
-        <br><br><br>
-        <label class = "dec_label"for = "l_name" i style="color: gold;">Last name: </label>
-        <input class = "dec_input"type="text" id="l_name" name="l_name"size="25">
-        <br><br><br>
-        <label class = "dec_label"for = "faculty" i style="color: gold;">faculty: </label>
-        <input class = "dec_input"type="text" id="faculty" name="faculty"size="25">
-        <br><br><br>
-        <label class = "dec_label"for = "p_id" i style="color: gold;">personal ID: </label>
-        <input class = "dec_input"type="number" id="p_id" name="p_id"size="25">
-        <br><br><br>
-        <div id="output_block2">
-        <a href="project.html">
-         <button type="button" id = "addButton">Submit</button>
-        </a>
-        </div>
+    <button id="countButton">Press me</button>
   </form>
   
   <script>
-    var f_name = document.getElementById("f_name");
-          var l_name = document.getElementById("l_name");
-          var faculty = document.getElementById("faculty");
-          var p_id = document.getElementById("p_id");
-          var sub_list = document.getElementById("sub_list");
-  
-    var inputValues = [];
-  
-    addButton.addEventListener("click", function() {
-      inputValues.push("name: "+f_name.value +" "+ l_name.value + "<br> faculty: "+ faculty.value + "<br> personal ID: "+ p_id.value);
-      f_name.value = "";
-      l_name.value = "";
-      faculty.value = "";
-      p_id.value = "";
-      localStorage.setItem('dataList', JSON.stringify(inputValues));
-    });
-    for (var i = 0; i < localStorage.length; i++) {
-  var key = localStorage.key(i);
-  var value = localStorage.getItem(key);
-  console.log(key + " one: the: " + value);
-}
+    // Get the current count from local storage, or set it to 0 if it doesn't exist
+let count = localStorage.getItem("count") || 0;
+
+// Get a reference to the button
+let countButton = document.getElementById("countButton");
+
+// Add a click event listener to the button
+countButton.addEventListener("click", function() {
+  // Increment the count
+  count++;
+
+  // Save the count back to local storage
+  localStorage.setItem("count", count);
+
+   console.log(count);
+});
+
 
   </script>
 </body>
