@@ -1,6 +1,7 @@
 var historyBorrow = document.getElementById("historyBorrow");
         var dataList = JSON.parse(localStorage.getItem("dataList"));
         let count_b = localStorage.getItem("count_b");
+        const arr_em = [];
         
 
        function displayValues(){
@@ -11,6 +12,7 @@ var historyBorrow = document.getElementById("historyBorrow");
             output.innerHTML = dataList[i];
             historyBorrow.appendChild(output);
             console.log("data list",count_b," = ",dataList);
+            console.log(arr_em.push(dataList));
         }
        }
 
