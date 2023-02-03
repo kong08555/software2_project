@@ -12,17 +12,14 @@ var historyBorrow = document.getElementById("historyBorrow");
             output.innerHTML = dataList[i];
             historyBorrow.appendChild(output);
             console.log("data list",count_b," = ",dataList);
-            arr_em.push(dataList);
-            console.log(arr_em);
+            arr_em.push(dataList[i]);
+            console.log(arr_em.length);
         }
        }
 
     displayValues();
 
     function delete_data(){
-         localStorage.removeItem("f_name");
-         localStorage.removeItem("l_name");
-         localStorage.removeItem("faculty");
-         localStorage.removeItem("p_id");
+         localStorage.removeItem(dataList);
          document.getElementById("historyBorrow").innerHTML = "";
     }
