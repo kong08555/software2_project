@@ -11,7 +11,7 @@ var historyBorrow = document.getElementById("historyBorrow");
             output.classList.add("output");
             output.innerHTML = dataList[i];
             historyBorrow.appendChild(output);
-            console.log("data list",count_b," = ",dataList);
+            console.log("data list",count_b," = ",dataList[i]);
             arr_em.push(dataList[i]);
             console.log(arr_em.length);
         }
@@ -20,6 +20,6 @@ var historyBorrow = document.getElementById("historyBorrow");
     displayValues();
 
     function delete_data(){
-         localStorage.removeItem(dataList);
+         localStorage.removeItem("dataList");
          document.getElementById("historyBorrow").innerHTML = "";
     }
