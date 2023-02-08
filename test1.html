@@ -6,23 +6,14 @@
     <button id="countButton">Press me</button>
   </form>
   
-  <script>
-    // Get the current count from local storage, or set it to 0 if it doesn't exist
-let count = localStorage.getItem("count") || 0;
-
-// Get a reference to the button
-let countButton = document.getElementById("countButton");
-
-// Add a click event listener to the button
-countButton.addEventListener("click", function() {
-  // Increment the count
-  count++;
-
-  // Save the count back to local storage
-  localStorage.setItem("count", count);
-
-   console.log(count);
-});
+  <script> 
+    let newVariable = [];
+for (let i = 0; i < 3+1; i++) {
+  newVariable[i] = [];
+  console.log(newVariable);
+}
+var i = document.getElementById("i");
+console.log("new variable = : ",newVariable); 
 
 
   </script>

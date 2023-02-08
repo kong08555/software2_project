@@ -6,13 +6,13 @@ var historyBorrow = document.getElementById("historyBorrow");
 
        function displayValues(){
         historyBorrow.innerHTML = "";
-        for(var i =0;i < dataList.length; i++){
+        for(var j =0;j < dataList.length; j++){
             var output = document.createElement("div");
             output.classList.add("output");
-            output.innerHTML = dataList[i];
+            output.innerHTML = dataList[j];
             historyBorrow.appendChild(output);
-            console.log("data list",count_b," = ",dataList[i]);
-            arr_em.push(dataList[i]);
+            console.log("data list",j," = ",dataList[j]);
+            arr_em.push(dataList[j]);
             console.log(arr_em.length);
         }
        }

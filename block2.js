@@ -4,13 +4,14 @@ var f_name = document.getElementById("f_name");
           var p_id = document.getElementById("p_id");
           var sub_list = document.getElementById("sub_list");
 
-          var dataList = JSON.parse(localStorage.getItem("arr_empty"));
+          var dataList = JSON.parse(localStorage.getItem("New_Var"));
           var count_i = JSON.parse(localStorage.getItem("i"));
           var count1 = localStorage.getItem("count1");
           let count_b = localStorage.getItem("count_b");
           let reset_btn = document.getElementById("reset_btn");
 
           console.log("create empty array: ",count_b ,"=",dataList);
+          console.log(localStorage.getItem("i"));
 
           sub_list.addEventListener("click",function(){
             dataList.push("name: "+f_name.value +" "+ l_name.value + "<br> faculty: "+ faculty.value + "<br> personal ID: "+ p_id.value);
