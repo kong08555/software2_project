@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kong08555/software2_project/issues"
   },
-  "homepage": "https://github.com/kong08555/software2_project#readme"
+  "homepage": "https://github.com/kong08555/software2_project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
