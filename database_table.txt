@@ -1,0 +1,6 @@
+user
+**first_name
+**last_name
+**faculty
+**personal_id
+**item
