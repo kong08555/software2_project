@@ -1,6 +1,7 @@
 user
-**first_name
-**last_name
-**faculty
-**personal_id
-**item
+**first_name(text)
+**last_name(text)
+**faculty(text)
+**personal_id(int)
+**item_name(text)
+**quantity(int)

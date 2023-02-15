@@ -1,3 +1,4 @@
+
 var f_name = document.getElementById("f_name");
           var l_name = document.getElementById("l_name");
           var faculty = document.getElementById("faculty");
@@ -20,6 +21,7 @@ var f_name = document.getElementById("f_name");
             faculty.value = "";
             p_id.value = "";
             localStorage.setItem('dataList', JSON.stringify(dataList));
+            module.exports = dataList;
           });
 
           reset_btn.addEventListener("click", function() {
