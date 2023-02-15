@@ -13,7 +13,7 @@ var f_name = document.getElementById("f_name");
 
           console.log("create empty array: ",count_b ,"=",dataList);
           console.log(localStorage.getItem("i"));
-
+          
           sub_list.addEventListener("click",function(){
             dataList.push("name: "+f_name.value +" "+ l_name.value + "<br> faculty: "+ faculty.value + "<br> personal ID: "+ p_id.value);
             f_name.value = "";
@@ -21,8 +21,9 @@ var f_name = document.getElementById("f_name");
             faculty.value = "";
             p_id.value = "";
             localStorage.setItem('dataList', JSON.stringify(dataList));
-            module.exports = dataList;
+            
           });
+
 
           reset_btn.addEventListener("click", function() {
             localStorage.removeItem("count_b");

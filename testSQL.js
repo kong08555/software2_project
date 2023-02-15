@@ -6,7 +6,7 @@ const db = new sqlite3.Database('./project.db', sqlite3.OPEN_READWRITE, (err) =>
     if (err) return console.error(err.message);
 });
 //retrieve data
-let dataList = require('./block2');
+const dataList = require('./hold_data');
 
 // create table
 //sql_table = `CREATE TABLE User(id INTEGER PRIMARY KEY,first_name TEXT,last_name TEXT,faculty TEXT,personal_id INTEGER,item_name TEXT,quantity INTEGER)`;
