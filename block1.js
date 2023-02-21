@@ -11,10 +11,8 @@ var historyBorrow = document.getElementById("historyBorrow");
             output.classList.add("output");
             output.innerHTML = dataList[j];
             historyBorrow.appendChild(output);
-            console.log("data list",j," = ",dataList[j]);
-            arr_em.push(dataList[j]);
-            console.log(arr_em.length);
         }
+        console.log(dataList);
        }
 
     displayValues();
