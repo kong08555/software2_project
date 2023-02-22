@@ -6,11 +6,26 @@
         <link rel="stylesheet" href="b2.css">
     </head>
     <style>
+        body {
+    background-image: url('wallpaper.jpg');
+    background-attachment: fixed;
+    background-size: 100% 105%;
+    text-align: center;
+   }
+.dec_label{
+    position: fixed;
+    left: 40%;
+    width: 100px;
+}
+.dec_input{
+    position: fixed;
+    left: 47%;
+   }
     </style>
     <body>
         <h1><i style="color:gold ;">block 2</i></h1>
         <h2><i style="color:gold ;">user register</i></h2>
-    <form action="block1.html"> 
+    <form action="/showdata" method="get"> 
         <label class = "dec_label"for = "f_name" i style="color: gold;">First name: </label>
         <input class = "dec_input" type="text" id="f_name" name="f_name" size="25">
         <br><br><br>
@@ -24,14 +39,13 @@
         <input class = "dec_input"type="number" id="p_id" name="p_id"size="25">
         <br><br><br>
         <div id="output_block2">
-        <a href="project.html">
-         <button type="button" id = "sub_list">Submit</button>
+        <button type="button" id = "sub_list">Submit</button>
         </a>
         </div>
         <button id="reset_btn">Reset</button>
     </form>
 
     <script tpye = "module" src = "block2.js"></script>
-    <script type = "module" src = "block2_db.js"></script>
+    <script tpye = "module" src = "block2_db.js"></script>
 </body>
 </html>

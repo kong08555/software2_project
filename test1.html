@@ -1,12 +1,83 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Input Array</title>
+  </head>
+  <body>
+    <form>
+      <label for="f_name">First name:</label>
+      <input type="text" id="f_name" name="f_name" />
+      <br />
+      <br />
+      <label for="l_name">Last name:</label>
+      <input type="text" id="l_name" name="l_name" />
+      <br />
+      <br />
+      <label for="faculty">Faculty:</label>
+      <input type="text" id="faculty" name="faculty" />
+      <br />
+      <br />
+      <label for="p_id">Personal ID:</label>
+      <input type="number" id="p_id" name="p_id" />
+      <br />
+      <br />
+      <button type="button" onclick="saveData()">Save</button>
+    </form>
+    <script>
+      let inputData = [];
 
-  <form>
-    <button onclick="createVariable()">Press me</button>
-  </form>
-  
-  <script type="module" src = "test1.js"> 
- </script>
-</body>
+      function saveData() {
+        inputData.push({
+          f_name: document.getElementById('f_name').value,
+          l_name: document.getElementById('l_name').value,
+          faculty: document.getElementById('faculty').value,
+          p_id: document.getElementById('p_id').value
+        });
+        saveToFile();
+      }
+
+      function saveToFile() {
+        if (typeof window.webkitRequestFileSystem !== 'undefined') {
+          window.webkitRequestFileSystem(
+            window.TEMPORARY,
+            1024 * 1024,
+            function (fs) {
+              fs.root.getFile(
+                'data.txt',
+                { create: true },
+                function (fileEntry) {
+                  fileEntry.createWriter(
+                    function (fileWriter) {
+                      fileWriter.onwriteend = function (e) {
+                        console.log('Input data saved to file.');
+                      };
+                      fileWriter.onerror = function (e) {
+                        console.error('Failed to save input data to file.');
+                      };
+                      let data = new Blob([JSON.stringify(inputData)], {
+                        type: 'text/plain'
+                      });
+                      fileWriter.write(data);
+                    },
+                    function (e) {
+                      console.error('Failed to create file writer.');
+                    }
+                  );
+                },
+                function (e) {
+                  console.error('Failed to get file.');
+                }
+              );
+            },
+            function (e) {
+              console.error('Failed to request file system.');
+            }
+          );
+        } else {
+          console.error('File System API not supported in this browser.');
+        }
+      }
+    </script>
+  </body>
 </html>

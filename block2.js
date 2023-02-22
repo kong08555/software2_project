@@ -4,12 +4,10 @@ var f_name = document.getElementById("f_name");
           var p_id = document.getElementById("p_id");
           var sub_list = document.getElementById("sub_list");
 
-          const dataList = JSON.parse(localStorage.getItem("New_Var"));
-          let count_b = localStorage.getItem("count_b");
+           const dataList = [];
           let reset_btn = document.getElementById("reset_btn");
 
-          console.log("create empty array: ",count_b ,"=",dataList);
-          console.log(localStorage.getItem("i"));
+          //console.log("create empty array: ", dataList);
           
           sub_list.addEventListener("click",function(){
             dataList.push(f_name.value);
@@ -21,11 +19,13 @@ var f_name = document.getElementById("f_name");
             faculty.value = "";
             p_id.value = "";
             localStorage.setItem('dataList', JSON.stringify(dataList));
+            console.log(dataList);
           });
+          
 
 
           reset_btn.addEventListener("click", function() {
-            localStorage.removeItem("count_b");
+            //localStorage.removeItem("count_b");
             count_b = 0;
             console.log(count_b);
           });
