@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <form action="/submit-form" method="post">
-  <label for="input-field">Input:</label>
-  <input type="text" name="input" id="input-field">
-  <button type="submit" id="submit-button">Submit</button>
-</form>
-<script tpye = "module" src = "test2.js">
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Insert Data into SQLite using JavaScript</title>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName"><br><br>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName"><br><br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      // 1. Create a database connection object
+      const db = openDatabase('myDatabase', '1.0', 'My Database', 2 * 1024 * 1024);
+
+      // 2. Create the table if it doesn't exist
+      db.transaction(function(tx) {
+        tx.executeSql('CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY, firstName TEXT, lastName TEXT)');
+      });
+
+      // 3. Add an event listener for the form submit button
+      const form = document.getElementById('myForm');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // prevent the form from submitting
+
+        // 4. Get the input values from the form
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+
+        // 5. Insert the data into the database
+        db.transaction(function(tx) {
+          tx.executeSql('INSERT INTO people (firstName, lastName) VALUES (?, ?)', [firstName, lastName]);
+        });
+
+        // 6. Clear the form fields
+        form.reset();
+
+        alert('Data inserted successfully!');
+      });
+    </script>
+  </body>
 </html>
