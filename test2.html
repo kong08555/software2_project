@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Insert Data into SQLite using JavaScript</title>
-  </head>
-  <body>
-    <form id="myForm">
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" name="firstName"><br><br>
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName"><br><br>
-      <button type="submit">Submit</button>
-    </form>
-
-    <script>
-      // 1. Create a database connection object
-      const db = openDatabase('myDatabase', '1.0', 'My Database', 2 * 1024 * 1024);
-
-      // 2. Create the table if it doesn't exist
-      db.transaction(function(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY, firstName TEXT, lastName TEXT)');
-      });
-
-      // 3. Add an event listener for the form submit button
-      const form = document.getElementById('myForm');
-      form.addEventListener('submit', function(event) {
-        event.preventDefault(); // prevent the form from submitting
-
-        // 4. Get the input values from the form
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-
-        // 5. Insert the data into the database
-        db.transaction(function(tx) {
-          tx.executeSql('INSERT INTO people (firstName, lastName) VALUES (?, ?)', [firstName, lastName]);
-        });
-
-        // 6. Clear the form fields
-        form.reset();
-
-        alert('Data inserted successfully!');
-      });
-    </script>
-  </body>
+<head>
+	<title>Sports Equipment Borrowing</title>
+	<style>
+		/* add your CSS styles here */
+    body{
+      background-image: url(https://wallpaperaccess.com/full/6581883.gif);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+		.equipment {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.block {
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+			width: 200px;
+		}
+		.block img {
+			max-width: 100%;
+		}
+	</style>
+	<script>
+		// add your JavaScript code here
+	</script>
+</head>
+<body>
+	<h1>Sports Equipment Borrowing</h1>
+	<p>Select the equipment you want to borrow and enter the quantity:</p>
+	<div class="equipment">
+		<div class="block">
+			<h2>Tennis Racket</h2>
+			<img src="tennis-racket.jpg" alt="tennis racket">
+			<p>Available: 5</p>
+			<input type="number" id="tennis" name="tennis" min="0" max="5" value="0">
+		</div>
+		<div class="block">
+			<h2>Basketball</h2>
+			<img src="basketball.jpg" alt="basketball">
+			<p>Available: 10</p>
+			<input type="number" id="basketball" name="basketball" min="0" max="10" value="0">
+		</div>
+		<!-- add more equipment blocks here -->
+	</div>
+	<button type="button" onclick="borrowEquipment()">Borrow</button>
+	<div id="message"></div>
+	<script>
+		function borrowEquipment() {
+			var tennisQty = document.getElementById("tennis").value;
+			var basketballQty = document.getElementById("basketball").value;
+			// get the quantities of other equipment
+			// calculate the total quantity
+			var totalQty = parseInt(tennisQty) + parseInt(basketballQty);
+			// check if the total quantity is greater than 0
+			if (totalQty > 0) {
+				// display a success message
+				document.getElementById("message").innerHTML = "You have borrowed " + totalQty + " equipment.";
+			} else {
+				// display an error message
+				document.getElementById("message").innerHTML = "Please select at least one equipment to borrow.";
+			}
+		}
+	</script>
+</body>
 </html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>inventory item</title>
+  </head>
+  <style>
+    body {
+        background-image: url(https://wallpaperaccess.com/full/6581883.gif);
+        background-attachment: fixed;
+        background-size: 100% 105%;
+        text-align: center;
+       }
+    button{
+            font-size: 40px;
+            padding: 50px;
+            border-radius: 30px;
+            margin: 70px;
+            background-color: chartreuse;
+            color:black;
+           }
+    .equipment {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.block {
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: gold;
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+			width: 200px;
+		}
+		.block img {
+			max-width: 100%;
+		}
+  </style>
+  <body>
+    <h1> Equipment Borrowing</h1>
+	<p>Select the equipment you want to borrow and enter the quantity:</p>
+    <form action="/item" method="get">
+	<div class="equipment">
+		<div class="block">
+			<h2>oscilloscope</h2>
+			<p>Available: 5</p>
+			<input type="number" id="oscilloscope" name="oscilloscope" min="0" max="5" value="0">
+		</div>
+		<div class="block">
+			<h2>power supply</h2>
+			<p>Available: 10</p>
+			<input type="number" id="power_supply" name="power_supply" min="0" max="10" value="0">
+		</div>
+        <div class="block">
+			<h2>function generator</h2>
+			<p>Available: 10</p>
+			<input type="number" id="function_generator" name="function_generator" min="0" max="10" value="0">
+		</div>
+        <div class="block">
+			<h2>soldering iron</h2>
+			<p>Available: 10</p>
+			<input type="number" id="soldering_iron" name="soldering_iron" min="0" max="10" value="0">
+		</div>
+        <div class="block">
+			<h2>digital meter</h2>
+			<p>Available: 10</p>
+			<input type="number" id="digital_meter" name="digital_meter" min="0" max="10" value="0">
+		</div>
+        <div class="block">
+			<h2>breadboard</h2>
+			<p>Available: 10</p>
+			<input type="number" id="breadboard" name="breadboard" min="0" max="10" value="0">
+		</div>
+		<!-- add more equipment blocks here -->
+	</div>
+	<button type="submit" onclick="borrowEquipment()">Borrow</button>
+	<div id="message"></div>
+  </form>
+	<script>
+		function borrowEquipment() {
+			var tennisQty = document.getElementById("tennis").value;
+			var basketballQty = document.getElementById("basketball").value;
+			// get the quantities of other equipment
+			// calculate the total quantity
+			var totalQty = parseInt(tennisQty) + parseInt(basketballQty);
+			// check if the total quantity is greater than 0
+			if (totalQty > 0) {
+				// display a success message
+				document.getElementById("message").innerHTML = "You have borrowed " + totalQty + " equipment.";
+			} else {
+				// display an error message
+				document.getElementById("message").innerHTML = "Please select at least one equipment to borrow.";
+			}
+		}
+	</script>
+
+  </body>
+</html>
