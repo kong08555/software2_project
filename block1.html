@@ -18,19 +18,32 @@
       }
 
       .block {
-        width: 200px;
-        height: 200px;
-        margin: 20px;
-        background-color: white;
+        width: 250px;
+        height: 250px;
+        margin: 40px;
+        background-color:gold;
         border: 2px solid black;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 15px;
+        font-size: 17px;
         font-weight: bold;
         color: black;
+        position: relative;
+      }
+      .delete-button {
+        position:absolute;
+        top: 225px;
+        right: 5px;
+        font-size: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 3px 5px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -38,10 +51,10 @@
     <a href="project.html">
       <button>Home</button>
     </a>
-
     <div class="block-container"></div>
 
     <script>
+
       fetch('/show')
         .then(response => response.json())
         .then(data => {
@@ -53,16 +66,37 @@
               <div>name: ${item.first_name} ${item.last_name}</div>
               <div>faculty: ${item.faculty}</div>
               <div>personal id: ${item.personal_id}</div>
+              <div>--------------------------------------</div>
               <div>oscilloscope: ${item.oscilloscope} ตัว</div>
               <div>power supply: ${item.power_supply} ตัว</div>
               <div>function generator: ${item.function_gen} ตัว</div>  
-              <div>soldering iron:${item.soldering_iron} ตัว</div>
-              <div>digital meter:${item.digital_meter}ตัว </div>
-              <div>breadboard: ${item.breadboard}ตัว </div>
+              <div>soldering iron: ${item.soldering_iron} ตัว</div>
+              <div>digital meter: ${item.digital_meter} ตัว </div>
+              <div>breadboard: ${item.breadboard} ตัว </div>
+              <button class="delete-button" data-id="${item.id}" onclick="deletedata(${item.id})">Delete</button>
             `;
             container.appendChild(block);
           });
         });
+      function deletedata(id) {
+  console.log(id); 
+  fetch('/delete', {
+    method: 'POST',
+    body: JSON.stringify({id:id}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // remove the block from the UI
+    
+    const block = document.querySelector(`.block [data-id="${id}"]`).parentNode;
+    block.parentNode.removeChild(block);
+  })
+  .catch(err => console.error(err));
+}  
     </script>
   </body>
 </html>

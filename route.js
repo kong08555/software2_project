@@ -82,6 +82,19 @@ app.get('/show', (req, res) => {
   });
 });
 
+app.post('/delete', (req, res) => {
+  const id = req.body.id;
+  db.run('DELETE FROM User WHERE id = ?', id, function(err) {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send('Error deleting data from database');
+    } else {
+      console.log(`Row with ID ${id} deleted from database`);
+      res.json({ success: true });
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`App listening at port:${port}`);
 });
