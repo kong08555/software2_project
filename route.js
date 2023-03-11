@@ -48,7 +48,7 @@ app.get('/puts_data', (req, res) => {
     //}
   //});
   let data = [f_name, l_name, faculty, p_id];
-  console.log(data);
+  console.log("register success");
   all_data.push(data);
   res.sendFile(__dirname + '/inventory.html');
 });
@@ -66,12 +66,31 @@ app.get('/item',(req, res) =>{
   all_data.push(item);
   const combinedData = all_data.reduce((acc, cur) => acc.concat(cur), []);
   console.log(combinedData);
+  const sql = `INSERT INTO User(first_name, last_name, faculty, personal_id, oscilloscope, power_supply, function_gen, soldering_iron, digital_meter, breadboard) VALUES(?,?,?,?,?,?,?,?,?,?)`;
+  db.run(sql, combinedData, function(err) {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send('Error inserting data into User table.');
+    } else {
+      console.log(`Rows inserted: ${this.changes}`);
+    }
+  });
 
   res.sendFile(__dirname + '/block1.html');
+  all_data.length = 0;
 });
 
-
+app.get('/show', (req, res) => {
+  db.all("SELECT * FROM User", [], (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send('Internal server error');
+    } else {
+      res.render('block1', { users: rows });
+    }
+  });
+});
 
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
+  console.log(`App listening at port:${port}`);
 });

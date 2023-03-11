@@ -73,27 +73,11 @@
 			<p>Available: 10</p>
 			<input type="number" id="breadboard" name="breadboard" min="0" max="10" value="0">
 		</div>
-		<!-- add more equipment blocks here -->
 	</div>
-	<button type="submit" onclick="borrowEquipment()">Borrow</button>
+	<button type="submit" >Borrow</button>
 	<div id="message"></div>
   </form>
 	<script>
-		function borrowEquipment() {
-			var tennisQty = document.getElementById("tennis").value;
-			var basketballQty = document.getElementById("basketball").value;
-			// get the quantities of other equipment
-			// calculate the total quantity
-			var totalQty = parseInt(tennisQty) + parseInt(basketballQty);
-			// check if the total quantity is greater than 0
-			if (totalQty > 0) {
-				// display a success message
-				document.getElementById("message").innerHTML = "You have borrowed " + totalQty + " equipment.";
-			} else {
-				// display an error message
-				document.getElementById("message").innerHTML = "Please select at least one equipment to borrow.";
-			}
-		}
 	</script>
 
   </body>
