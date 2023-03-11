@@ -38,15 +38,6 @@ app.get('/puts_data', (req, res) => {
   const faculty = req.query.faculty;
   const p_id = req.query.p_id;
  
-   //const sql = `INSERT INTO User(first_name, last_name, faculty, personal_id) VALUES(?,?,?,?)`;
-  //db.run(sql, [f_name, l_name, faculty, p_id], function(err) {
-    //if (err) {
-      //console.error(err.message);
-      //res.status(500).send('Error inserting data into User table.');
-    //} else {
-      //console.log(`Rows inserted: ${this.changes}`);
-    //}
-  //});
   let data = [f_name, l_name, faculty, p_id];
   console.log("register success");
   all_data.push(data);
@@ -86,7 +77,7 @@ app.get('/show', (req, res) => {
       console.log(err);
       res.status(500).send('Internal server error');
     } else {
-      res.render('block1', { users: rows });
+      res.send(rows);
     }
   });
 });
