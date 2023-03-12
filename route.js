@@ -82,7 +82,7 @@ app.get('/show', (req, res) => {
   });
 });
 
-app.post('/delete', (req, res) => {
+app.delete('/delete', (req, res) => {
   const id = req.body.id;
   db.run('DELETE FROM User WHERE id = ?', id, function(err) {
     if (err) {

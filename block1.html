@@ -81,7 +81,7 @@
       function deletedata(id) {
   console.log(id); 
   fetch('/delete', {
-    method: 'POST',
+    method: 'DELETE',
     body: JSON.stringify({id:id}),
     headers: {
       'Content-Type': 'application/json'
