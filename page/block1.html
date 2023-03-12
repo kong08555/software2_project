@@ -79,7 +79,6 @@
           });
         });
       function deletedata(id) {
-  console.log(id); 
   fetch('/delete', {
     method: 'DELETE',
     body: JSON.stringify({id:id}),
@@ -97,6 +96,7 @@
   })
   .catch(err => console.error(err));
 }  
+
     </script>
   </body>
 </html>

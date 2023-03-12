@@ -6,6 +6,7 @@ const all_data = [];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(express.json());
 
 const db = new sqlite3.Database('./database/project.db', (err) => {
   if (err) {
