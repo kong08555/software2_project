@@ -71,7 +71,7 @@ app.get('/item',(req, res) =>{
   res.sendFile(__dirname + '/page/block1.html');
   all_data.length = 0;
 });
-
+ 
 app.get('/show', (req, res) => {
   db.all("SELECT * FROM User", [], (err, rows) => {
     if (err) {

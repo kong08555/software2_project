@@ -67,12 +67,12 @@
               <div>faculty: ${item.faculty}</div>
               <div>personal id: ${item.personal_id}</div>
               <div>--------------------------------------</div>
-              <div>oscilloscope: ${item.oscilloscope} ตัว</div>
-              <div>power supply: ${item.power_supply} ตัว</div>
-              <div>function generator: ${item.function_gen} ตัว</div>  
-              <div>soldering iron: ${item.soldering_iron} ตัว</div>
-              <div>digital meter: ${item.digital_meter} ตัว </div>
-              <div>breadboard: ${item.breadboard} ตัว </div>
+              <div>oscilloscope: ${item.oscilloscope} ชิ้น</div>
+              <div>power supply: ${item.power_supply} ชิ้น</div>
+              <div>function generator: ${item.function_gen} ชิ้น</div>  
+              <div>soldering iron: ${item.soldering_iron} ชิ้น</div>
+              <div>digital meter: ${item.digital_meter} ชิ้น </div>
+              <div>breadboard: ${item.breadboard} ชิ้น </div>
               <button class="delete-button" data-id="${item.id}" onclick="deletedata(${item.id})">Delete</button>
             `;
             container.appendChild(block);
@@ -89,7 +89,6 @@
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    // remove the block from the UI
     
     const block = document.querySelector(`.block [data-id="${id}"]`).parentNode;
     block.parentNode.removeChild(block);
