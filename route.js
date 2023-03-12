@@ -16,19 +16,19 @@ const db = new sqlite3.Database('./project.db', (err) => {
 
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/project.html');
+  res.sendFile(__dirname + '/page/project.html');
 });
 
 app.get('/block2.html', (req, res) => {
-  res.sendFile(__dirname + '/block2.html');
+  res.sendFile(__dirname + '/page/block2.html');
 });
 
 app.get('/block1.html', (req, res) => {
-  res.sendFile(__dirname + '/block1.html');
+  res.sendFile(__dirname + '/page/block1.html');
 });
 
 app.get('/project.html', (req, res) => {
-  res.sendFile(__dirname + '/project.html');
+  res.sendFile(__dirname + '/page/project.html');
 });
 
 
@@ -41,7 +41,7 @@ app.get('/puts_data', (req, res) => {
   let data = [f_name, l_name, faculty, p_id];
   console.log("register success");
   all_data.push(data);
-  res.sendFile(__dirname + '/inventory.html');
+  res.sendFile(__dirname + '/page/inventory.html');
 });
 
 app.get('/item',(req, res) =>{
@@ -67,7 +67,7 @@ app.get('/item',(req, res) =>{
     }
   });
 
-  res.sendFile(__dirname + '/block1.html');
+  res.sendFile(__dirname + '/page/block1.html');
   all_data.length = 0;
 });
 
